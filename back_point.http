@@ -1,0 +1,6 @@
+@back_point_HostAddress = http://localhost:5258
+
+GET {{back_point_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
