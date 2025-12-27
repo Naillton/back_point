@@ -140,7 +140,8 @@ Este projeto está sob a licença MIT.
 
 José Nailton Andrade Santos Junior  
 Belo Jardim - PE  
-Email: juniorborges.bj@gmail.com  
+Email: juniorborges.bj@gmail.com
+Email: nailton_junior@protonmail.com
 LinkedIn: https://www.linkedin.com/in/nailtonjr/  
 GitHub: https://github.com/Naillton
 
