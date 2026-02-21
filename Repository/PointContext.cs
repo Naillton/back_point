@@ -18,6 +18,9 @@ namespace back_point.Repository
         {
 
             modelBuilder.Entity<User>()
+                .HasAlternateKey(u => u.code);
+
+            modelBuilder.Entity<User>()
                 .HasOne(u => u.Enterprise)
                 .WithMany(e => e.Users)
                 .HasForeignKey(u => u.EnterpriseId)
@@ -26,7 +29,8 @@ namespace back_point.Repository
             modelBuilder.Entity<Point>()
                 .HasOne(p => p.User)
                 .WithMany(u => u.Points)
-                .HasForeignKey(p => p.UserId)
+                .HasForeignKey(p => p.code)
+                .HasPrincipalKey(u => u.code)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

@@ -7,12 +7,12 @@ namespace back_point.Services
     using System.Threading.Tasks;
     using back_point.DTO;
 
+
     public class EnterpriseService : IEnterprise
     {
         private readonly IEnterpriseRepository _enterpriseRepository;
         private readonly IValidator _validator;
         private readonly IPasswordHash _passwordHash;
-
         public EnterpriseService(IEnterpriseRepository enterpriseRepository, IValidator validator, IPasswordHash passwordHash)
         {
             _enterpriseRepository = enterpriseRepository;
@@ -102,14 +102,18 @@ namespace back_point.Services
             return enterprise;
         }
 
-        public Task<List<User>> GetUsersByEnterpriseId(Guid enterpriseId)
+        public async Task<List<UserResponseDTO>> GetUsersByEnterpriseId(Guid enterpriseId)
         {
-            var userList = _enterpriseRepository.GetUsersByEnterpriseId(enterpriseId);
+
+            // verificando se a o usuario existe com base no id da empresa
+            var userList = await _enterpriseRepository.GetUsersByEnterpriseId(enterpriseId);
             if (userList == null)
             {
                 throw new Exception("No users found for this enterprise.");
             }
-            return userList;
+
+            // caso o usuario exista, ele é convertido para um DTO e retornado
+            return userList.Select(u => MapperService.ToUserResponseDTO(u)).ToList();
         }
 
         public async Task<Enterprise> UpdateEnterprise(CreateEnterpriseDTO enterpriseDTO, Guid enterpriseId)
@@ -128,6 +132,21 @@ namespace back_point.Services
             var hashedPassword = _passwordHash.HashPassword(enterpriseDTO.EnterprisePassword);
             entp.EnterprisePassword = hashedPassword;
             return await _enterpriseRepository.UpdateEnterprise(entp);
+        }
+
+        public async Task<User> UpdateUser(CreateUserDTO userDTO, string code)
+        {
+            User? user = await _enterpriseRepository.GetUserByCode(code);
+            if (user == null)
+            {
+                throw new Exception("User not found.");
+            }
+
+            user.FullName = userDTO.FullName;
+            user.Email = userDTO.Email;
+            user.Role = userDTO.Role;
+            user.Username = userDTO.Username;
+            return await _enterpriseRepository.UpdateUser(user);
         }
     }
 }

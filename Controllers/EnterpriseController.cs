@@ -24,7 +24,10 @@ namespace back_point.Controller
             try
             {
                 var result = await _enterpriseService.CreateEnterprise(createEnterpriseDTO);
-                return Ok(result);
+                return Ok(new {
+                    success = true,
+                    message = "Empresa criada com sucesso!"
+                });
             } catch (Exception ex)
             {
                 return BadRequest(new { error = ex.Message });
@@ -42,12 +45,38 @@ namespace back_point.Controller
                     return BadRequest(new { error = "Authentication failed" });
                 }
                 var token = _tokenService.GenerateToken(result.Id, result.Email, result.Cnpj);
-                return Ok(new { token } );
+                Response.Cookies.Append("auth_token", token, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = false, // false se localhost sem https
+                    SameSite = SameSiteMode.Lax,
+                    Expires = DateTime.UtcNow.AddHours(1),
+                    Path = "/"
+                });
+
+                return Ok(new { 
+                    success = true,
+                    message = "Login realizado com sucesso!",
+                    value = token
+                } );
             } catch (Exception ex)
             {
                 return BadRequest(new { error = ex.Message });
             }
         }
+
+        [Authorize]
+        [HttpPost("logout")]
+        public IActionResult Logout()
+        {
+            Response.Cookies.Delete("auth_token", new CookieOptions
+            {
+                Path = "/"
+            });
+
+            return Ok();
+        }
+
 
         [Authorize]
         [HttpPost("{enterpriseId}")]
@@ -56,7 +85,11 @@ namespace back_point.Controller
             try
             {
                 var result = await _enterpriseService.CreateUser(enterpriseId, createUserDTO);
-                return Ok(result);
+                return Ok(new {
+                    success = true,
+                    message = "Usuario cadastrado com sucesso!",
+                    value = result
+                });
             } catch (Exception ex)
             {
                 return BadRequest(new { error = ex.Message });
@@ -70,7 +103,11 @@ namespace back_point.Controller
             try
             {
                 var result = await _enterpriseService.GetUsersByEnterpriseId(enterpriseId);
-                return Ok(result);
+                return Ok(new
+                {
+                    success = true,
+                    value = result
+                });
             } catch (Exception ex)
             {
                 return BadRequest(new { error = ex.Message });
@@ -84,7 +121,11 @@ namespace back_point.Controller
             try
             {
                 var result = await _enterpriseService.DeleteEnterprise(id);
-                return Ok(result);
+                return Ok(new
+                {
+                    success = true,
+                    message = "Empresa deletada"
+                });
             } catch (Exception ex)
             {
                 return BadRequest(new { error = ex.Message });
@@ -98,7 +139,31 @@ namespace back_point.Controller
             try
             {
                 var result = await _enterpriseService.UpdateEnterprise(enterpriseDTO, enterpriseId);
-                return Ok(result);
+                return Ok(new
+                {
+                    success = true,
+                    message = "Empresa atualizada com sucesso",
+                    value = result
+                });
+            } catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
+
+        [Authorize]
+        [HttpPut("/user/{code}")]
+        public async Task<IActionResult> UpdateUser([FromBody] CreateUserDTO userDTO, [FromRoute] string code)
+        {
+            try
+            {
+                var result = await _enterpriseService.UpdateUser(userDTO, code);
+                return Ok(new
+                {
+                    success = true,
+                    message = "Usuario atualizada com sucesso",
+                    value = result
+                });
             } catch (Exception ex)
             {
                 return BadRequest(new { error = ex.Message });

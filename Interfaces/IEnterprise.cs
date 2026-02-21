@@ -11,9 +11,10 @@ namespace back_point.Interfaces
         Task<Enterprise> CreateEnterprise(CreateEnterpriseDTO dto);
         Task<Enterprise?> GetEnterpriseById(Guid id);
         Task<Enterprise> UpdateEnterprise(CreateEnterpriseDTO enterpriseDTO, Guid enterpriseId);
+        Task<User> UpdateUser(CreateUserDTO userDTO, string code);
         Task<bool> DeleteEnterprise(Guid id);
         Task<Enterprise?> AuthenticateEnterprise(EnterpriseLoginDTO dto);
         Task<User> CreateUser(Guid enterpriseId, CreateUserDTO dto);
-        Task<List<User>> GetUsersByEnterpriseId(Guid enterpriseId);
+        Task<List<UserResponseDTO>> GetUsersByEnterpriseId(Guid enterpriseId);
     }
 }

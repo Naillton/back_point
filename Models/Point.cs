@@ -14,8 +14,8 @@ namespace back_point.Models
 
         public double Longitude { get; set; }
 
-        [ForeignKey("UserId")]
-        public Guid UserId { get; set; }
+        [ForeignKey("Code")]
+        public string code { get; set; } = null!;
         public User? User { get; set; }
     }
 }

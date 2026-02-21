@@ -159,3 +159,11 @@
 /home/junior/git/back_point/bin/Debug/net10.0/Swashbuckle.AspNetCore.Swagger.dll
 /home/junior/git/back_point/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /home/junior/git/back_point/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/junior/git/back_point/obj/Debug/net10.0/back_point.sourcelink.json
+/home/junior/git/back_point/bin/Debug/net10.0/SkiaSharp.dll
+/home/junior/git/back_point/bin/Debug/net10.0/zxing.dll
+/home/junior/git/back_point/bin/Debug/net10.0/ZXing.SkiaSharp.dll
+/home/junior/git/back_point/bin/Debug/net10.0/runtimes/osx/native/libSkiaSharp.dylib
+/home/junior/git/back_point/bin/Debug/net10.0/runtimes/win-arm64/native/libSkiaSharp.dll
+/home/junior/git/back_point/bin/Debug/net10.0/runtimes/win-x64/native/libSkiaSharp.dll
+/home/junior/git/back_point/bin/Debug/net10.0/runtimes/win-x86/native/libSkiaSharp.dll

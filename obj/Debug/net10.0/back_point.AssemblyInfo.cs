@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("back_point")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f1b94715cb446aaf2d85458c5ba0cf8492febd5")]
 [assembly: System.Reflection.AssemblyProductAttribute("back_point")]
 [assembly: System.Reflection.AssemblyTitleAttribute("back_point")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

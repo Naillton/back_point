@@ -16,6 +16,9 @@ namespace back_point.Models
 
         public string Role { get; set; }
 
+        [Required]
+        public string code { get; set; } = Guid.NewGuid().ToString("N");
+
         [ForeignKey("EnterpriseId")]
         public Guid EnterpriseId { get; set; }
         public Enterprise? Enterprise { get; set; }

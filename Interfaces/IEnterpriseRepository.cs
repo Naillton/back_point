@@ -11,6 +11,7 @@ namespace back_point.Interfaces
         Task<Enterprise> CreateEnterprise(Enterprise enterprise);
         Task<Enterprise?> GetEnterpriseById(Guid id);
         Task<Enterprise> UpdateEnterprise(Enterprise enterprise);
+        Task<User> UpdateUser(User user);
         Task<bool> DeleteEnterprise(Guid id);
         Task<Enterprise?> AuthenticateEnterprise(string email, string password);
         Task<User> CreateUser(Guid enterpriseId, User user);
@@ -18,5 +19,6 @@ namespace back_point.Interfaces
         Task<Enterprise?> GetEnterpriseByCnpj(string cnpj);
         Task<Enterprise?> GetEnterpriseByEmail(string email);
         Task<User?> GetUserByEmail(string email);
+        Task<User?> GetUserByCode(string code);
     }
 }

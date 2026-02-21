@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JTRF4dXyH/Q=",
+  "dgSpecHash": "FyY9vhnR8Kg=",
   "success": true,
   "projectFilePath": "/home/junior/git/back_point/back_point.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,9 @@
     "/home/junior/.nuget/packages/microsoft.sqlserver.server/1.0.0/microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "/home/junior/.nuget/packages/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "/home/junior/.nuget/packages/mono.texttemplating/3.0.0/mono.texttemplating.3.0.0.nupkg.sha512",
+    "/home/junior/.nuget/packages/skiasharp/3.119.1/skiasharp.3.119.1.nupkg.sha512",
+    "/home/junior/.nuget/packages/skiasharp.nativeassets.macos/3.119.1/skiasharp.nativeassets.macos.3.119.1.nupkg.sha512",
+    "/home/junior/.nuget/packages/skiasharp.nativeassets.win32/3.119.1/skiasharp.nativeassets.win32.3.119.1.nupkg.sha512",
     "/home/junior/.nuget/packages/swashbuckle.aspnetcore/10.1.0/swashbuckle.aspnetcore.10.1.0.nupkg.sha512",
     "/home/junior/.nuget/packages/swashbuckle.aspnetcore.swagger/10.1.0/swashbuckle.aspnetcore.swagger.10.1.0.nupkg.sha512",
     "/home/junior/.nuget/packages/swashbuckle.aspnetcore.swaggergen/10.1.0/swashbuckle.aspnetcore.swaggergen.10.1.0.nupkg.sha512",
@@ -63,7 +66,9 @@
     "/home/junior/.nuget/packages/system.runtime.caching/6.0.0/system.runtime.caching.6.0.0.nupkg.sha512",
     "/home/junior/.nuget/packages/system.security.cryptography.protecteddata/6.0.0/system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
     "/home/junior/.nuget/packages/system.security.permissions/6.0.0/system.security.permissions.6.0.0.nupkg.sha512",
-    "/home/junior/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512"
+    "/home/junior/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
+    "/home/junior/.nuget/packages/zxing.net/0.16.11/zxing.net.0.16.11.nupkg.sha512",
+    "/home/junior/.nuget/packages/zxing.net.bindings.skiasharp/0.16.22/zxing.net.bindings.skiasharp.0.16.22.nupkg.sha512"
   ],
   "logs": []
 }

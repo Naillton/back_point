@@ -7,9 +7,9 @@ namespace back_point.Interfaces
 
     public interface IPoint
     {
-        Task<Point> CreatePoint(Guid userId);
+        Task<Point> CreatePoint(string code);
         Task<Point?> GetPointById(Guid id);
-        Task<List<Point>> GetPointsByUserId(Guid userId);
+        Task<List<Point>> GetPointsByUserCode(string code);
         Task<Point> UpdatePoint(Point point);
         Task<bool> DeletePoint(Guid id);
     }

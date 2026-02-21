@@ -39,10 +39,10 @@ namespace back_point.Repository
             return await _context.Points.FindAsync(id);
         }
 
-        public async Task<List<Point>> GetPointsByUserId(Guid userId)
+        public async Task<List<Point>> GetPointsByUserCode(string code)
         {
             return await _context.Points
-                .Where(p => p.UserId == userId)
+                .Where(p => p.code == code)
                 .ToListAsync();
         }
 

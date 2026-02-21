@@ -47,6 +47,7 @@ namespace back_point.Repository
         {
             return _context.Users
                 .Where(u => u.EnterpriseId == enterpriseId)
+                .Include(u => u.Points)
                 .ToListAsync();
         }
 
@@ -55,6 +56,13 @@ namespace back_point.Repository
             _context.Enterprises.Update(enterprise);
             await _context.SaveChangesAsync();
             return enterprise;
+        }
+
+        public async Task<User> UpdateUser(User user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+            return user;
         }
 
         public async Task<bool> DeleteEnterprise(Guid id)
@@ -85,7 +93,15 @@ namespace back_point.Repository
         public Task<User?> GetUserByEmail(string email)
         {
             return _context.Users
+                .Include(u => u.Points)
                 .FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public Task<User?> GetUserByCode(string code)
+        {
+            return _context.Users
+                .Include(u => u.Points)
+                .FirstOrDefaultAsync(u => u.code == code);
         }
     }
 }
