@@ -162,7 +162,15 @@ namespace back_point.Controller
                 {
                     success = true,
                     message = "Usuario atualizada com sucesso",
-                    value = result
+                    value = new
+                    {
+                        result.Id,
+                        result.Username,
+                        result.Email,
+                        result.FullName,
+                        result.Role,
+                        result.code
+                    }
                 });
             } catch (Exception ex)
             {

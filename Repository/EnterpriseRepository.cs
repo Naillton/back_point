@@ -100,7 +100,6 @@ namespace back_point.Repository
         public Task<User?> GetUserByCode(string code)
         {
             return _context.Users
-                .Include(u => u.Points)
                 .FirstOrDefaultAsync(u => u.code == code);
         }
     }
